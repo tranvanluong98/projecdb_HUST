@@ -1,0 +1,90 @@
+.edit-table{
+    /* color:blue; */
+    font-size: 10px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.home{
+    text-align: center;
+ 
+}
+.btn-freestyle{
+      margin-right: 20px;
+}
+
+/* All Bill */
+.row-edit{
+    width: 61%;
+    text-align: center;
+}
+/* Login */
+.centered {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+}
+
+.header-card{
+    text-align: center;
+        font-size: 35px;
+    font-weight: bold;
+    color: cornflowerblue;
+}
+
+/* User */
+.sum-user{
+    font-size: 24px;
+}
+.hihi{
+      position: relative;
+    top: -35px;
+    left: 230px;
+    color: red;
+}
+.pos-col{
+    text-align: center;
+
+}
+.input-edit {
+    width: 55%;
+}
+.done-btn{
+        position: fixed;
+    top: 90%;
+    left: 50%;
+}
+.done-btn2{
+        position: fixed;
+    top: 70%;
+    left: 50%;
+}
+.input-newuser{
+    margin-bottom: 20px;
+     position: relative;
+    left: 30%;
+    width: 40%;
+    text-align: center;
+    height: 69px;
+    top: 10px;
+}
+.delete-user{
+        width: 55%;
+    text-align: center;
+    position: relative;
+    left: 22%;
+    height: 70px;
+}
+.admin-text{
+    position: relative;
+        top: -39px;
+    left: 187px;
+}
+.edit1{
+   position: absolute;
+    top: 37%;
+    left: 9%;
+}
+
+.main{
+    position: relative;
+    margin-bottom: 62px;
+}
