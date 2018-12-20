@@ -49,36 +49,36 @@ class NewSupplier extends Component {
                 <FormGroup row>
                     <Label sm={2}>Tên Nhà Cung Cấp Mới</Label>
                     <Col sm={10}>
-                        <Input type="text" onChange={this.handleChange} id="0" placeholder=' Nhập Tên Nhà Cung Cấp Vào Đây' required />
+                        <Input style={{ width: '50%' }} type="text" onChange={this.handleChange} id="0" placeholder=' Nhập Tên Nhà Cung Cấp Vào Đây' required />
                     </Col>
                 </FormGroup>
 
                 <FormGroup row>
-                    <Label sm={2}>Mật Khẩu</Label>
+                    <Label sm={2}>Địa chỉ</Label>
                     <Col sm={10}>
-                        <Input type="text" onChange={this.handleChange} name="password" id="1" placeholder="Nhập Địa Chỉ Của Bạn Vào Đây" required />
+                        <Input style={{ width: '50%' }} type="text" onChange={this.handleChange} name="password" id="1" placeholder="Nhập Địa Chỉ Của Bạn Vào Đây" required />
                     </Col>
                 </FormGroup>
 
                 <FormGroup row>
                     <Label sm={2}>Số Điện Thoại</Label>
                     <Col sm={10}>
-                        <Input type="text" onChange={this.handleChange} name="numberphone" id="2" placeholder="Bạn Hãy Nhập Số Điện Thoại Vào Đây" required />
+                        <Input style={{ width: '50%' }} type="text" onChange={this.handleChange} name="numberphone" id="2" placeholder="Bạn Hãy Nhập Số Điện Thoại Vào Đây" required />
                     </Col>
                 </FormGroup>
 
                 <FormGroup row>
                     <Label for="exampleEmail" sm={2}>Email</Label>
                     <Col sm={10}>
-                        <Input type="email" onChange={this.handleChange} name="email" id="3" placeholder="Bạn Hãy Nhập Email Vào Đây" required />
+                        <Input style={{ width: '50%' }} type="email" onChange={this.handleChange} name="email" id="3" placeholder="Bạn Hãy Nhập Email Vào Đây" required />
                     </Col>
                 </FormGroup>
 
                 <Button onClick={this.createNewSupplier} className="done-btn" color="success" > Xong </Button>
-
-                <a href='/home'>
+                <a href='/home' className="done-btn" style={{ marginLeft: '120px' }} color="success" >
                     <Button > Trang Home </Button>
                 </a>
+
             </div>
         );
     }

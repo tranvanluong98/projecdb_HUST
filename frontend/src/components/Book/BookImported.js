@@ -14,7 +14,7 @@ class BookImported extends Component {
             amountImport: "",
             nameBook: "",
             nameAuthor: "",
-            weight: 502,
+            weight: 0,
             typeOfBook: "",
             pageOfBook: 0,
             publisher: ""
@@ -67,7 +67,7 @@ class BookImported extends Component {
         // let preAmount = this.state
         let tempID = this.state.bookimported._id;
         console.log('got ID:', tempID)
-       
+
         axios.put(config.rootPath + `/api/import-item/update-bill-import/${tempID}`, this.state.bookimported)
             .then(res => console.log(res))
             .catch(err => { console.log(err) })
@@ -147,9 +147,9 @@ class BookImported extends Component {
                         </Col>
                     </FormGroup>
                 </Form>
-                {/* <a href="/books"> */}
-                <Button onClick={this.updatebookimported} className="done-btn"> Cập Nhật</Button>
-                {/* </a> */}
+                <a href="/books">
+                <Button onClick={this.updatebookimported} style={{ top: '93%', left: '45%' }} className="done-btn"> Cập Nhật</Button>
+                </a>
             </div>
         );
     }

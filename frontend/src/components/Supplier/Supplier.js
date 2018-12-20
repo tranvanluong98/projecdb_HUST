@@ -92,7 +92,7 @@ class Supplier extends Component {
                         <Button color="info" style={{ marginRight: '35px' }} title="Hãy Sao Chép ID Nhà Cung Cấp Cần Cập Nhật">Cập Nhật Thông Tin Nhà Cung Cấp</Button>
                     </a>
                     <a href="/suppliers/delete">
-                        <Button color="danger" style={{ marginRight: '35px' }} title="Bạn Hãy Sao Chép ID Nhà Cung Cấp Bạn Muốn Xóa">Xóa Khách Hàng</Button>
+                        <Button color="danger" style={{ marginRight: '35px' }} title="Bạn Hãy Sao Chép ID Nhà Cung Cấp Bạn Muốn Xóa">Xóa Nhà Cung Cấp</Button>
                     </a>
                     <a href='/home'>
                         <Button > Trang Home </Button>

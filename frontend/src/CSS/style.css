@@ -1,3 +1,4 @@
+
 .edit-table{
     /* color:blue; */
     font-size: 10px;
@@ -5,11 +6,16 @@
 }
 .home{
     text-align: center;
- 
+   background: url('https://us.123rf.com/450wm/olegdudko/olegdudko1508/olegdudko150800346/43200439-books-studying-scripture-.jpg?ver=6');
+
+    background-size: cover;
 }
 .btn-freestyle{
       margin-right: 20px;
 }
+/* .btn-freestyle:hover{
+    color: #d10f0f;
+} */
 
 /* All Bill */
 .row-edit{
@@ -49,8 +55,8 @@
 }
 .done-btn{
         position: fixed;
-    top: 90%;
-    left: 50%;
+    top: 35%;
+    left: 30%;
 }
 .done-btn2{
         position: fixed;
@@ -87,6 +93,7 @@
 .main{
     position: relative;
     margin-bottom: 62px;
+    font-size: 70px;
 }
 
 #search{
@@ -102,4 +109,27 @@
     top: 10px;
     border-right: 16px;
     z-index: 100;
+}
+/* updateuser  */
+
+.update-user{
+        position: relative;
+    top: 8px;
+    left: 572px;
+}
+.button-center{
+       position: absolute;
+    top: 10%;
+    left: 50%;
+}
+
+.del-input{
+     position: relative;
+    text-align: center;
+    width: 20%;
+    height: 25px;
+}
+.new-book-btn{
+    position: relative;
+    left: 26%;
 }

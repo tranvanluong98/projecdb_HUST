@@ -16,7 +16,7 @@ class HomeScreen extends Component {
                 <h3 className="main">Trình Quản Lý Hệ Thống Bán Sách</h3>
                 <div className="edit1">
                     <a href='/users'>
-                        <Button className="btn-freestyle">
+                        <Button color='silver' className="btn-freestyle">
                             Danh sách khách hàng</Button>
                     </a>
                     <a href='/books'>

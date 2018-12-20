@@ -72,13 +72,13 @@ class UpdateSupplier extends Component {
                     <FormGroup row>
                         <Label for="examplePassword" sm={2}>Địa Chỉ</Label>
                         <Col sm={10}>
-                            <Input type="text" onChange={this.handleChange} name="password" id="1" value={this.state.supplier.addressSupplier} required />
+                            <Input style={{ width: '50%' }} type="text" onChange={this.handleChange} name="password" id="1" value={this.state.supplier.addressSupplier} required />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
                         <Label for="examplePassword" sm={2}>Số Điện Thoại</Label>
                         <Col sm={10}>
-                            <Input type="text" onChange={this.handleChange} name="password" id="2" value={this.state.supplier.numberPhone} required />
+                            <Input style={{ width: '50%' }} type="text" onChange={this.handleChange} name="password" id="2" value={this.state.supplier.numberPhone} required />
                         </Col>
                     </FormGroup>
 
@@ -87,12 +87,12 @@ class UpdateSupplier extends Component {
                     <FormGroup row>
                         <Label for="exampleEmail" sm={2}>Email</Label>
                         <Col sm={10}>
-                            <Input type="email" onChange={this.handleChange} name="email" id="3" value={this.state.supplier.email} required />
+                            <Input style={{ width: '50%' }} type="email" onChange={this.handleChange} name="email" id="3" value={this.state.supplier.email} required />
                         </Col>
                     </FormGroup>
                 </Form>
                 <a href="/suppliers">
-                    <Button onClick={this.updateSupplier()}> Cập Nhật</Button>
+                    <Button onClick={this.updateSupplier()} style={{ top: '50%' }} className="done-btn"> Cập Nhật</Button>
                 </a>
             </div>
         );

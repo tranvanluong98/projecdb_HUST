@@ -137,7 +137,10 @@ class UpdateUser extends Component {
                 </Form>
 
                 <a href="/users">
-                    <Button onClick={this.updateUser()} className="done-btn2"> Cập Nhật</Button>
+                    <Button color="info" onClick={this.updateUser()} className="done-btn2"> Cập Nhật</Button>
+                </a>
+                <a href='/users'>
+                    <Button color="primary" className="update-user"> Quay Lại </Button>
                 </a>
             </div>
         );

@@ -21,7 +21,7 @@ class NewStaff extends Component {
         if (e.target.id === '1') prestaff.staff_NumberPhone = e.target.value
         if (e.target.id === '2') prestaff.staff_Address = e.target.value
         if (e.target.id === '3') prestaff.staff_Position = e.target.value
-        
+
         this.setState({ staff: prestaff })
         console.log(this.state.staff)
     }
@@ -51,45 +51,45 @@ class NewStaff extends Component {
                     <FormGroup row>
                         <Label for="textstaff" sm={2}>Tên Nhân Viên</Label>
                         <Col sm={10}>
-                            <Input type="text" onChange={this.handleChange} id="0" placeholder='Bạn Hãy Nhập Tên Vào Đây' required />
+                            <Input style={{ width: '50%' }} type="text" onChange={this.handleChange} id="0" placeholder='Bạn Hãy Nhập Tên Vào Đây' required />
                         </Col>
                     </FormGroup>
 
                     <FormGroup row>
                         <Label for="examplePassword" sm={2}>Số Điện Thoại</Label>
                         <Col sm={10}>
-                            <Input type="text" onChange={this.handleChange} name="password" id="1" placeholder="Nhập Số Điện Thoại Vào Đây" />
+                            <Input style={{ width: '50%' }} type="text" onChange={this.handleChange} name="password" id="1" placeholder="Nhập Số Điện Thoại Vào Đây" />
                         </Col>
                     </FormGroup>
 
                     <FormGroup row>
                         <Label for="textstaff" sm={2}>Địa Chỉ</Label>
                         <Col sm={10}>
-                            <Input type="text" onChange={this.handleChange} name="numberphone" id="2" placeholder="Bạn Hãy Nhập Địa Chỉ Vào Đây" required />
+                            <Input style={{ width: '50%' }} type="text" onChange={this.handleChange} name="numberphone" id="2" placeholder="Bạn Hãy Nhập Địa Chỉ Vào Đây" required />
                         </Col>
                     </FormGroup>
 
                     <FormGroup row>
                         <Label for="exampleEmail" sm={2}>Vị Trí</Label>
-                        <Col sm={10}>
-                            <Input type="select" onChange={this.handleChange} name="email" id="3" placeholder="Bạn Hãy Nhập Vị Trí Nhân Viên Vào Đây" >
-                                    <option> </option>
-                                    <option>Nhân Viên </option>
-                                    <option>Chăm Sóc Khách Hàng </option>
-                                    <option> Tư Vấn Viên</option>
-                                    <option>Marketing </option>
-                                    <option>Lao Công </option>
-                                    <option>Kế Toán </option>
+                        <Col  sm={10}>
+                            <Input style={{ width: '50%' }} type="select" onChange={this.handleChange} name="email" id="3" placeholder="Bạn Hãy Nhập Vị Trí Nhân Viên Vào Đây" >
+                                <option> </option>
+                                <option>Nhân Viên </option>
+                                <option>Chăm Sóc Khách Hàng </option>
+                                <option> Tư Vấn Viên</option>
+                                <option>Marketing </option>
+                                <option>Lao Công </option>
+                                <option>Kế Toán </option>
                             </Input >
                         </Col>
                     </FormGroup>
 
-                    
+
                 </Form>
 
-                <Button onClick={this.createNewStaff} color="success" > Xong </Button>
+                <Button onClick={this.createNewStaff} className="done-btn" color="success" > Xong </Button>
 
-                <a href='/staff/all-staff'>
+                <a href='/staff/all-staff' className="done-btn" style={{ marginLeft: '120px' }}>
                     <Button > Trang Home </Button>
                 </a>
             </div >

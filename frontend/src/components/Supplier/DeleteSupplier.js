@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import config from '../../config'
 
-import { Input } from 'reactstrap'
+import { Input, Button } from 'reactstrap'
 class DeleteSupplier extends Component {
     state = {
         idSupplier: {}
@@ -34,9 +34,9 @@ class DeleteSupplier extends Component {
 
         return (
             <div>
-                <Input type="text" id='0' onChange={this.getID} placeholder="Nhập ID Nhà Cung Cấp Bạn Muốn Xóa Vào Đây..." />
+                <Input type="text" id='0' onChange={this.getID} style={{ marginTop: '20px', marginLeft: '20%', textAlign: 'center', width: '50%' }} placeholder="Nhập ID Nhà Cung Cấp Bạn Muốn Xóa Vào Đây..." />
                 <a href="/suppliers">
-                    <button onClick={this.handleDeleteCustomer} > Xóa Supplier</button>
+                    <Button color="danger" className="update-user" onClick={this.handleDeleteCustomer} > Xóa Supplier</Button>
                 </a>
             </div>
         );

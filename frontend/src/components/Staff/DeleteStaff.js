@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import config from '../../config'
 
-import { Input } from 'reactstrap'
+import { Input, Button } from 'reactstrap'
 class DeleteStaff extends Component {
     state = {
         idStaff: {}
@@ -34,10 +34,11 @@ class DeleteStaff extends Component {
 
         return (
             <div>
-                <Input type="text" id='0' onChange={this.getID} placeholder="Nhập ID Nhân Viên Bạn Muốn Dừng Hợp Đồng Vào Đây..." />
+                <Input type="text" id='0' onChange={this.getID} style={{ width: '40%', left: "37%" }} className="del-input" placeholder="Nhập ID Nhân Viên Bạn Muốn Dừng Hợp Đồng Vào Đây..." />
                 <a href="/staff/all-staff">
-                    <button onClick={this.handleDeleteStaff} >Dừng Hợp Đồng Nhân Viên</button>
+                    <Button color="danger" onClick={this.handleDeleteStaff} className="btn button-center" >Dừng Hợp Đồng Nhân Viên</Button>
                 </a>
+
             </div>
         );
     }

@@ -40,7 +40,7 @@ class NewUser extends Component {
             .then(res => {
                 console.log(res)
                 alert('Tạo thành công rồi');
-                window.location.href= '/users'
+                window.location.href = '/users'
             })
             .catch(err => {
                 console.log(err)
@@ -107,15 +107,18 @@ class NewUser extends Component {
                     <FormGroup row>
                         <Label className="pos-col" for="textUser" sm={2}>Ngày Sinh</Label>
                         <Col sm={10}>
-                            <Input type="text" className="input-edit" onChange={this.handleChange} name="dateOfBirth" id="6" placeholder="Bạn Hãy Nhập Số Điện Thoại Vào Đây" required />
+                            <Input type="text" className="input-edit" onChange={this.handleChange} name="dateOfBirth" id="6" placeholder="VD:15/01/1998" required />
                         </Col>
                     </FormGroup>
                 </Form>
-               
-                    <Button onClick={this.createNewUser} className="done-btn" color="success" > Xong </Button>
-            
-                <a href='/home'>
+
+
+
+                <a href='/home' className="done-btn">
                     <Button > Trang Home </Button>
+                </a>
+                <a href="/users">
+                    <Button onClick={this.createNewUser} className="done-btn" style={{ marginLeft: '120px' }} color="success" > Tạo Mới </Button>
                 </a>
             </div >
         );
