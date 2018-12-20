@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import $ from 'jquery'
 import config from "../../config"
 import { Link } from 'react-router-dom'
 import { CardHeader, Table, Button } from 'reactstrap'
@@ -21,68 +22,50 @@ class Supplier extends Component {
 
     }
 
-    renderSupplierID = () => {
+    renderSupplier = () => {
         var arr1 = []
 
         for (let i = 0; i < this.state.Supplier.length; i++) {
 
             console.log('name supplier', this.state.Supplier[i].nameSupplier)
 
-            arr1[i] = <tr><td>{this.state.Supplier ? this.state.Supplier[i]._id : "error"}</td></tr>
+            arr1[i] = <tr>
+                <td>{this.state.Supplier ? this.state.Supplier[i]._id : "error"}</td>
+                <td>{this.state.Supplier ? this.state.Supplier[i].nameSupplier : "error"}</td>
+                <td>{this.state.Supplier ? this.state.Supplier[i].addressSupplier : "error"}</td>
+                <td>{this.state.Supplier ? this.state.Supplier[i].numberPhone : "error"}</td>
+                <td>{this.state.Supplier ? this.state.Supplier[i].email : "error"}</td>
+            </tr>
 
         }
         return arr1;
     }
-    renderSupplierName = () => {
-        var arr1 = []
 
-        for (let i = 0; i < this.state.Supplier.length; i++) {
-            arr1[i] = <tr><td>{this.state.Supplier ? this.state.Supplier[i].nameSupplier : "error"}</td></tr>
-
-        }
-        return arr1;
-    }
-    renderSupplierAddress = () => {
-        var arr1 = []
-
-        for (let i = 0; i < this.state.Supplier.length; i++) {
-
-            arr1[i] = <tr><td>{this.state.Supplier ? this.state.Supplier[i].addressSupplier : "error"}</td></tr>
-
-        }
-        return arr1;
-    }
-    renderSupplierPhone = () => {
-        var arr1 = []
-
-        for (let i = 0; i < this.state.Supplier.length; i++) {
-
-            arr1[i] = <tr><td>{this.state.Supplier ? this.state.Supplier[i].numberPhone : "error"}</td></tr>
-
-        }
-        return arr1;
-    }
-    renderSupplierPhoneEmail = () => {
-        var arr1 = []
-
-        for (let i = 0; i < this.state.Supplier.length; i++) {
-
-            arr1[i] = <tr><td>{this.state.Supplier ? this.state.Supplier[i].email : "error"}</td></tr>
-
-        }
-        return arr1;
-    }
 
     render() {
+        $(document).ready(function () {
 
+            $("#search").keyup(function () {
+                var searchText = $(this).val().toLowerCase();
+                // Show only matching TR, hide rest of them
+                $.each($("#table tbody tr"), function () {
+                    if ($(this).text().toLowerCase().indexOf(searchText) === -1)
+                        $(this).hide();
+                    else
+                        $(this).show();
+                });
+            });
+        });
         return (
 
             < div >
 
-                < CardHeader className="text-center"> Danh Sách Các Nhà Cung Cấp Sách Cho Cửa Hàng</CardHeader >
+                < CardHeader className="text-center" style={{ fontWeight: 'bold', fontSize: '35px' }}> Danh Sách Các Nhà Cung Cấp Sách Cho Cửa Hàng</CardHeader >
 
-
-                <Table striped>
+                <br /><br />
+                <img className="img-search" src={'https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png'} />
+                <input id="search" type="text" className="form-control" placeholder="Tìm kiếm tất cả..." />
+                <Table striped id="table">
                     <thead className='text-center'>
                         <tr>
                             <th>Mã Nhà Cung Cấp</th>
@@ -94,38 +77,7 @@ class Supplier extends Component {
 
                     </thead>
                     <tbody >
-                        <td className="text-center">
-
-                            {/* <tr> <td> dddddddddddddddd</td></tr> sẽ được data vào hết 1 cột*/}
-                            {this.renderSupplierID()}
-
-                        </td>
-                        <td className="text-center">
-
-                            {this.renderSupplierName()}
-
-
-                        </td>
-                        <td className="text-center">
-
-                            {this.renderSupplierAddress()}
-
-
-                        </td>
-                        <td className="text-center">
-
-                            {this.renderSupplierPhone()}
-
-
-                        </td>
-                        <td className="text-center">
-
-                            {this.renderSupplierPhoneEmail()}
-
-
-                        </td>
-
-
+                        {this.renderSupplier()}
 
                     </tbody>
 
@@ -146,7 +98,7 @@ class Supplier extends Component {
                         <Button > Trang Home </Button>
                     </a>
                 </div >
-                <span> Tổng số nhà cung cấp: {this.state.Supplier ? this.state.Supplier.length : "err"} </span>
+                <span className="sum-user"> Tổng số nhà cung cấp:<p className='hihi' > {this.state.Supplier ? this.state.Supplier.length : "err"} </p> </span>
             </div >
 
         );

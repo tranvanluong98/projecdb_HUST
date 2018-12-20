@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import $ from 'jquery'
 import axios from 'axios'
 import config from "../../config"
 import { Link } from 'react-router-dom'
@@ -40,86 +40,42 @@ class WareHouse extends Component {
     renderBook_Supplier = () => {
         var arr1 = []
         for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td style={{ padding: "-0.25rem" }}>{this.state.ListBook ? this.state.ListBook[i].supplier : "error"}</td></tr>
-        }
-        return arr1;
-    }
-    renderBook_ID = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td style={{ padding: "-0.25rem" }}>{this.state.ListBook ? this.state.ListBook[i]._id : "error"}</td></tr>
-        }
-        return arr1;
-    }
-    renderBook_PriceImport = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td style={{ padding: "-0.25rem" }}>{this.state.ListBook ? this.state.ListBook[i].priceImport : "error"}</td></tr>
+            arr1[i] =
+                <tr>
+
+                    <td >{this.state.ListBook ? this.state.ListBook[i]._id : "error"}</td>
+                    <td>{this.state.ListBook ? this.state.ListBook[i].nameBook : "error"}</td>
+                    <td >{this.state.ListBook ? this.state.ListBook[i].nameAuthor : "error"}</td>
+                    <td >{this.state.ListBook ? this.state.ListBook[i].supplier : "error"}</td>
+                    <td >{this.state.ListBook ? this.state.ListBook[i].priceImport : "error"}</td>
+                    <td >{this.state.ListBook ? this.state.ListBook[i].priceImport : "error"}</td>
+                    <td >{this.state.ListBook ? this.state.ListBook[i].priceExport : "error"}</td>
+                    <td  >{this.state.ListBook ? this.state.ListBook[i].weight : "error"}</td>
+                    <td  >{this.state.ListBook ? this.state.ListBook[i].pageOfBook : "error"}</td>
+                    <td  >{this.state.ListBook ? this.state.ListBook[i].typeOfBook : "error"}</td>
+                    <td  >{this.state.ListBook ? this.state.ListBook[i].publisher : "error"}</td>
+                </tr>
         }
         return arr1;
     }
 
-    renderBook_PriceExport = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td style={{ padding: "-0.25rem" }}>{this.state.ListBook ? this.state.ListBook[i].priceExport : "error"}</td></tr>
-        }
-        return arr1;
-    }
-    renderBook_Amount = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td style={{ padding: "-0.25rem" }}>{this.state.ListBook ? this.state.ListBook[i].amountImport : "error"}</td></tr>
-        }
-        return arr1;
-    }
-    renderBook_NameBook = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td style={{ padding: "-0.25rem" }}>{this.state.ListBook ? this.state.ListBook[i].nameBook : "error"}</td></tr>
-        }
-        return arr1;
-    }
-    renderUser_NameAuthor = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td style={{ padding: "-0.25rem" }}>{this.state.ListBook ? this.state.ListBook[i].nameAuthor : "error"}</td></tr>
-        }
-        return arr1;
-    }
-    renderWeight_Weight = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td>{this.state.ListBook ? this.state.ListBook[i].weight : "error"}</td></tr>
-        }
-        return arr1;
-    }
-
-
-
-    renderBook_TypeOfBook = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td>{this.state.ListBook ? this.state.ListBook[i].pageOfBook : "error"}</td></tr>
-        }
-        return arr1;
-    }
-    renderBook_PageOfBook = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td>{this.state.ListBook ? this.state.ListBook[i].typeOfBook : "error"}</td></tr>
-        }
-        return arr1;
-    }
-    renderBook_Publisher = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBook.length; i++) {
-            arr1[i] = <tr><td>{this.state.ListBook ? this.state.ListBook[i].publisher : "error"}</td></tr>
-        }
-        return arr1;
-    }
 
     render() {
+
+        $(document).ready(function () {
+
+            $("#search").keyup(function () {
+                var searchText = $(this).val().toLowerCase();
+                // Show only matching TR, hide rest of them
+                $.each($("#table tbody tr"), function () {
+                    if ($(this).text().toLowerCase().indexOf(searchText) === -1)
+                        $(this).hide();
+                    else
+                        $(this).show();
+                });
+            });
+        });
+
 
         return (
 
@@ -127,11 +83,9 @@ class WareHouse extends Component {
                 <CardHeader className='text-center' style={{ fontWeight: 'bold', fontSize: '35px' }}>Sách trong kho của cửa hàng sách MLKM</CardHeader>
 
                 <br /><br />
-
-                {/* {this.state.statusComponent  }
-                {<AllBill ListBook={this.state.ListBook} />}
-                {this.state.ListBook.length > 0 ? this.state.ListBook[1].publisher : 'err'} */}
-                <Table striped>
+                <img className="img-search" src={'https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png'} />
+                <input id="search" type="text" className="form-control" placeholder="Tìm kiếm tất cả..." />
+                <Table striped id="table">
                     <thead>
                         <tr>
 
@@ -151,53 +105,8 @@ class WareHouse extends Component {
                             <th>Nhà Xuất Bản</th>
                         </tr>
                     </thead>
-                    <tbody className="edit-table" >
-                        {/* <tr> <td> dddddddddddddddd</td></tr> sẽ được data vào hết 1 cột*/}
-                        <td >
-
-                            {this.renderBook_ID()}
-                        </td>
-                        <td>
-
-                            {this.renderBook_NameBook()}
-                        </td>
-                        <td style={{ padding: "-0.25rem" }}>
-
-                            {this.renderUser_NameAuthor()}
-                        </td>
-                        <td style={{ padding: "-0.25rem" }}>
-
-                            {this.renderBook_Supplier()}
-                        </td>
-                        <td style={{ padding: "-0.25rem" }}>
-
-                            {this.renderBook_PriceImport()}
-                        </td>
-                        <td style={{ padding: "-0.25rem" }}>
-
-                            {this.renderBook_PriceExport()}
-                        </td>
-                        <td style={{ padding: "-0.25rem" }}>
-
-                            {this.renderBook_Amount()}
-                        </td>
-                        <td style={{ padding: "-0.25rem" }}>
-
-                            {this.renderWeight_Weight()}
-                        </td>
-                        <td style={{ padding: "-0.25rem" }}>
-
-                            {this.renderBook_TypeOfBook()}
-                        </td>
-                        <td style={{ padding: "-0.25rem" }} >
-
-                            {this.renderBook_PageOfBook()}
-                        </td>
-                        <td style={{ padding: "-0.25rem" }}>
-
-                            {this.renderBook_Publisher()}
-                        </td>
-
+                    <tbody  >
+                        {this.renderBook_Supplier()}
                     </tbody>
                 </Table>
                 <div style={{ textAlign: 'center' }} >
@@ -214,7 +123,7 @@ class WareHouse extends Component {
                         <Button color="primary" style={{ marginRight: '35px' }} >Quay Lại Trang Chủ</Button>
                     </a>
                 </div >
-                <span> Tổng các đầu sách trong kho: {this.state.ListBook ? this.state.count : "err"} </span>
+                <span className="sum-user"> Tổng các đầu sách trong kho:<p className='hihi' > {this.state.ListBook ? this.state.count : "err"}</p> </span>
             </div >
         );
     }

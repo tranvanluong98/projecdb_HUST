@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import $ from 'jquery'
 import axios from 'axios'
 import config from "../../config"
 import { Link } from 'react-router-dom'
@@ -35,48 +35,48 @@ class AllBook extends Component {
 
     }
 
-    renderBill_ID = () => {
+    renderBill = () => {
         var arr1 = []
         for (let i = 0; i < this.state.ListBill.length; i++) {
-            arr1[i] = <tr><td className="row-edit">{this.state.ListBill ? this.state.ListBill[i]._id : "error"}</td></tr>
-        }
-        return arr1;
-    }
-    renderBill_NameCustomer = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBill.length; i++) {
-            arr1[i] = <tr><td >{this.state.ListBill ? this.state.ListBill[i].name : "error"}</td></tr>
-        }
-        return arr1;
-    }
+            arr1[i] = <tr>
+                <td >{this.state.ListBill ? this.state.ListBill[i]._id : "error"}</td>
+                <td >{this.state.ListBill ? this.state.ListBill[i].name : "error"}</td>
+                <td >{this.state.ListBill ? this.state.ListBill[i].namebook : "error"}</td>
+                <td >{this.state.ListBill ? this.state.ListBill[i].number : "error"}</td>
 
-    renderBill_NameBook = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBill.length; i++) {
-            arr1[i] = <tr><td >{this.state.ListBill ? this.state.ListBill[i].namebook : "error"}</td></tr>
+            </tr>
         }
         return arr1;
     }
 
 
-    renderBill_Number = () => {
-        var arr1 = []
-        for (let i = 0; i < this.state.ListBill.length; i++) {
-            arr1[i] = <tr><td >{this.state.ListBill ? this.state.ListBill[i].number : "error"}</td></tr>
-        }
-        return arr1;
-    }
+
+
 
     render() {
+        $(document).ready(function () {
 
+            $("#search").keyup(function () {
+                var searchText = $(this).val().toLowerCase();
+                // Show only matching TR, hide rest of them
+                $.each($("#table tbody tr"), function () {
+                    if ($(this).text().toLowerCase().indexOf(searchText) === -1)
+                        $(this).hide();
+                    else
+                        $(this).show();
+                });
+            });
+        });
         return (
 
             <div>
+
                 <CardHeader className='text-center' style={{ fontWeight: 'bold', fontSize: '35px' }}>Danh sách hóa đơn cửa hàng sách MLKM</CardHeader>
                 {/* {this.props.ListBook[1].publisher} */}
                 <br /><br />
-
-                <Table striped>
+                <img className="img-search" src={'https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png'} />
+                <input id="search" type="text" className="form-control" placeholder="Tìm kiếm tất cả..." />
+                <Table striped id="table">
                     <thead>
                         <tr>
 
@@ -89,24 +89,7 @@ class AllBook extends Component {
                     </thead>
                     <tbody  >
                         {/* <tr> <td> dddddddddddddddd</td></tr> sẽ được data vào hết 1 cột*/}
-                        <td >
-
-                            {this.renderBill_ID()}
-                        </td>
-                        <td >
-
-                            {this.renderBill_NameCustomer()}
-                        </td>
-                        <td>
-
-                            {this.renderBill_NameBook()}
-                        </td>
-
-                        <td >
-
-                            {this.renderBill_Number()}
-                        </td>
-
+                        {this.renderBill()}
                     </tbody>
                 </Table>
                 <div style={{ textAlign: 'center' }} >
@@ -121,7 +104,7 @@ class AllBook extends Component {
                         <Button color="primary" style={{ marginRight: '35px' }} >Quay Lại Trang Chủ</Button>
                     </a>
                 </div >
-                <span> Tổng hóa đơn trong kho: {this.state.ListBill ? this.state.count : "err"} </span>
+                <span className="sum-user"> Tổng số lượng hóa đơn:<p className='hihi' > {this.state.ListBill ? this.state.count : "err"} </p> </span>
                 {/* <span> Tổng sach trong kho: {this.props.count} </span> */}
             </div >
         );
